@@ -78,7 +78,6 @@ uplinks:
 # https://verdaccio.org/docs/protect-your-dependencies/
 # https://verdaccio.org/docs/configuration#packages
 packages:
-  packages:
   '@pakipaki/*':
     access: $authenticated
     publish: $authenticated
