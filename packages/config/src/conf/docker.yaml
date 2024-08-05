@@ -78,27 +78,18 @@ uplinks:
 # https://verdaccio.org/docs/protect-your-dependencies/
 # https://verdaccio.org/docs/configuration#packages
 packages:
+  packages:
+  '@pakipaki/*':
+    access: $authenticated
+    publish: $authenticated
+    unpublish: $authenticated
   '@*/*':
-    # scoped packages
-    access: $all
+    access: $authenticated
     publish: $authenticated
-    unpublish: $authenticated
     proxy: npmjs
-
   '**':
-    # Allow all users (including non-authenticated users) to read and
-    # publish all packages
-    #
-    # You can specify usernames/groupnames (depending on your auth plugin)
-    # and three keywords: "$all", "$anonymous", "$authenticated"
-    access: $all
-
-    # Allow all known users to publish/unpublish packages
-    # (anyone can register by default, remember?)
+    access: $authenticated
     publish: $authenticated
-    unpublish: $authenticated
-
-    # if package is not available locally, proxy requests to 'npmjs' registry
     proxy: npmjs
 
 # To improve your security configuration and avoid dependency confusion
